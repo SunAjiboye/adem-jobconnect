@@ -1,0 +1,34 @@
+pipeline {
+  agent any
+  environment {
+    R_ENVIRON_USER = "${WORKSPACE}/.Renviron"
+  }
+  stages {
+    stage('Setup Environment') {
+      steps {
+        sh 'Rscript -e "renv::restore()"'
+      }
+    }
+    stage('Lint and Test Code') {
+      steps {
+        sh 'Rscript -e "lintr::lint_dir()"'
+        sh 'Rscript -e "testthat::test_dir(\"tests\")"'
+      }
+    }
+    stage('Run ETL Process') {
+      steps {
+        sh 'Rscript etl/etl.R'
+      }
+    }
+    stage('Validate Database Connection') {
+      steps {
+        sh 'Rscript -e "DBI::dbConnect(RPostgres::Postgres(), dbname = Sys.getenv(\"PGDATABASE\"))"'
+      }
+    }
+    stage('Security Check') {
+      steps {
+        sh 'snyk test || true'  // Run Snyk vulnerability check
+      }
+    }
+  }
+}
