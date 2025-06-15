@@ -1,0 +1,23 @@
+---
+title: "README"
+output: html_document
+---
+
+# ADEMJOBConnect
+
+Secure ETL pipeline for transforming and integrating Luxembourg’s ADEM data using R. Built for clarity, reproducibility, and seamless CI/CD automation.
+
+---
+
+## 🚀 Features
+
+- 🔐 GPG-signed commits and branch protection
+- 🧱 Modular ETL pipeline with R scripts
+- 🧪 SQL schema and database bootstrapping
+- 📦 `renv` for reproducible environments
+- ⚙️ GitHub Actions + Jenkins integration for CI/CD
+
+---
+
+## 📁 Directory Overview
+

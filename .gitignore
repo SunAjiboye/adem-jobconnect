@@ -1,1 +1,39 @@
-.Rproj.user
+# History and session data
+.Rhistory
+.RData
+.Rapp.history
+
+# RStudio files
+.Rproj.user/
+*.Rproj
+
+# Packages and environments
+renv/library/
+renv/staging/
+.Renviron
+
+# Logs and temp files
+*.log
+*.aux
+*.out
+*.toc
+*.tmp
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Git-specific
+.git/
+
+# Build artifacts
+__pycache__/
+*.pyc
+*.o
+*.so
+
+# Personal config files
+*.env
+
